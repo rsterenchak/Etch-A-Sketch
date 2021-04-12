@@ -1,36 +1,29 @@
 
 
+let rows = prompt("How many rows would you like in your grid?"); // rows and cols need to be set via user prompt
+let cols = prompt("How many columns would you like in your grid?");
+
+
 const container = document.getElementById('container');
 container.style.backgroundColor = 'white';
-container.style.display = 'grid';
-container.style.gridTemplateColumns = `repeat(16, 1fr)`;
-container.style.gridTemplateRows = `repeat(16, 1fr)`;
 
-let grid_box = document.createElement('div');
+function repeatBox(rows, cols){
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
 
-grid_box.style.backgroundColor = 'white';
-grid_box.textContent = ('box 1');
-grid_box.style.border = "3px solid black";
-grid_box.style.padding = '5px';
-
-repeatBox();
-
-function repeatBox(){
-
-    for(let i = 1; i < 257; i++){
+    for(let i = 0; i < (rows * cols); i++){
         
+
         cell = document.createElement("div");
-        cell.innerText = (i);
+        cell.innerText = (i + 1);
 
         container.appendChild(cell).className = "grid-items";
         
     }
     
-} 
+} //ends function
 
-
-
-
+repeatBox(rows, cols);
 
 
 
@@ -48,7 +41,7 @@ function repeatBox(){
 
 
 //try to use grid_template to create a 16 by 16 grid div
-console.dir(grid_box);
+// console.dir(grid_box);
 console.dir(container);
 console.dir(cell);
 
