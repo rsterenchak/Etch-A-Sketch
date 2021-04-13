@@ -19,7 +19,7 @@ body    {
 }
 
 .grid-items{
-
+    
     border: 1px solid black;
 
 }
@@ -31,8 +31,15 @@ body    {
 } */
 
 .button-top{
+    border-radius: 6px;
+    background-color: rgb(255, 254, 254);
+    width: 180px;
+    height: 60px;
+}
 
-    background-color: crimson;
+.button-top:hover{
+
+    background-color: rgb(233, 233, 233);
 
 }
 
@@ -73,12 +80,11 @@ body    {
   }
 
   #topButton{
+    /* background-color: aqua; */
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     padding:  20px;
-    width: 20px;
-    height: 20px;
   }
 
 

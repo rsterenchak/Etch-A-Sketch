@@ -9,6 +9,26 @@ container.style.backgroundColor = 'white';
 
 var btn = document.createElement("BUTTON");
 topButton.appendChild(btn).className = "button-top";
+btn.innerText = "CLEAR THE GRID";
+
+btn.addEventListener('click', function(){
+
+    // let cells = document.getElementsByClassName("grid-items");
+
+    for(let i = 0; i < (rows * cols); i++){
+
+        container.parentNode.removeChild();
+
+    }
+
+
+    rows = prompt("How many rows would you like in your grid?"); // rows and cols need to be set via user prompt
+    cols = prompt("How many columns would you like in your grid?");
+
+    repeatBox(rows, cols);
+    addListener(rows, cols);
+});
+
 
 function repeatBox(rows, cols){
     container.style.setProperty('--grid-rows', rows);
