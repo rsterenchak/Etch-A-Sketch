@@ -3,9 +3,12 @@
 let rows = prompt("How many rows would you like in your grid?"); // rows and cols need to be set via user prompt
 let cols = prompt("How many columns would you like in your grid?");
 
-
+const topButton = document.getElementById('topButton');
 const container = document.getElementById('container');
 container.style.backgroundColor = 'white';
+
+var btn = document.createElement("BUTTON");
+topButton.appendChild(btn).className = "button-top";
 
 function repeatBox(rows, cols){
     container.style.setProperty('--grid-rows', rows);
@@ -19,29 +22,43 @@ function repeatBox(rows, cols){
 
         container.appendChild(cell).className = "grid-items";
         
+
     }
-    
+
+
+
 } //ends function
 
 repeatBox(rows, cols);
+addListener(rows, cols);
+
+function addListener(rows, cols){
+
+    let cells = document.getElementsByClassName("grid-items");
+
+    for(let i = 0; i < (rows * cols); i++){
+    
+        let gridCell = cells[i].addEventListener("mouseover", func, false);
+        let gridOut = cells[i].addEventListener("mouseout", func1, false);
+
+        function func(){
+
+            cells[i].style.backgroundColor = 'red';
+    
+        }
+    
+        function func1(){
+
+            cells[i].style.backgroundColor = 'white';
+    
+        }
+    }
+
+    
+} //Ends addListener function
 
 
 
-//     cell.addEventListener("mouseover", func, false);
-//     cell.addEventListener("mouseout", func1, false);
-
-// function func(){  
-//    cell.setAttribute("style", "background-color:blue;")
-// }
-
-// function func1()
-// {  
-//    cell.setAttribute("style", "background-color:green;")
-// }
-
-
-//try to use grid_template to create a 16 by 16 grid div
-// console.dir(grid_box);
 console.dir(container);
 console.dir(cell);
 
