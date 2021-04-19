@@ -1,5 +1,6 @@
-let rows = prompt("How many rows and columns would you like in your grid?"); // rows and cols need to be set via user prompt
+let rows = prompt("How many rows and columns would you like in your grid?" + '\n' + "MAX ROWS & COLUMNS is 64."); // rows and cols need to be set via user prompt
 let cols = rows;
+
 
 const topButton = document.getElementById('topButton');
 const container = document.getElementById('container');
@@ -49,9 +50,18 @@ function repeatBox(rows, cols){
 
 } //ends function
 
+if(rows <= 64){
+
 repeatBox(rows, cols);
 addListener(rows, cols);
 
+}
+
+else{
+
+    location.reload();
+
+}
 function addListener(rows, cols){
 
     let cells = document.getElementsByClassName("grid-items");
